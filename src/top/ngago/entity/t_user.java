@@ -162,4 +162,25 @@ public class t_user {
     public void setFactory_id(int factory_id) {
         this.factory_id = factory_id;
     }
+
+    @Override
+    public String toString() {
+        return "t_user{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", user_status=" + user_status +
+                ", user_name='" + user_name + '\'' +
+                ", user_real_name='" + user_real_name + '\'' +
+                ", user_passwd='" + user_passwd + '\'' +
+                ", user_job_num='" + user_job_num + '\'' +
+                ", user_phone_num='" + user_phone_num + '\'' +
+                ", user_email='" + user_email + '\'' +
+                ", role_id=" + role_id +
+                ", factory_id=" + factory_id +
+                '}';
+    }
 }

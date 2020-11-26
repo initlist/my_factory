@@ -182,4 +182,27 @@ public class t_daily_work {
     public void setBak(String bak) {
         this.bak = bak;
     }
+
+    @Override
+    public String toString() {
+        return "t_daily_work{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", schedule_id=" + schedule_id +
+                ", equipment_id=" + equipment_id +
+                ", equipment_seq='" + equipment_seq + '\'' +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                ", working_count=" + working_count +
+                ", qualified_count=" + qualified_count +
+                ", unqualified_cout=" + unqualified_cout +
+                ", complete_flag=" + complete_flag +
+                ", factory_id=" + factory_id +
+                ", bak='" + bak + '\'' +
+                '}';
+    }
 }

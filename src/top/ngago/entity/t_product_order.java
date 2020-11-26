@@ -152,4 +152,24 @@ public class t_product_order {
     public void setFactory_yield(int factory_yield) {
         this.factory_yield = factory_yield;
     }
+
+    @Override
+    public String toString() {
+        return "t_product_order{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", order_seq='" + order_seq + '\'' +
+                ", order_source=" + order_source +
+                ", product_id=" + product_id +
+                ", product_count=" + product_count +
+                ", end_date=" + end_date +
+                ", order_status=" + order_status +
+                ", factory_id=" + factory_id +
+                ", factory_yield=" + factory_yield +
+                '}';
+    }
 }

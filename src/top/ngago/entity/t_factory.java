@@ -142,4 +142,23 @@ public class t_factory {
     public void setFactory_status(int factory_status) {
         this.factory_status = factory_status;
     }
+
+    @Override
+    public String toString() {
+        return "t_factory{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", bak='" + bak + '\'' +
+                ", factory_name='" + factory_name + '\'' +
+                ", factory_img_url='" + factory_img_url + '\'' +
+                ", factory_addr='" + factory_addr + '\'' +
+                ", factory_url='" + factory_url + '\'' +
+                ", factory_worker=" + factory_worker +
+                ", factory_status=" + factory_status +
+                '}';
+    }
 }

@@ -162,4 +162,25 @@ public class t_product_schedule {
     public void setFactory_id(int factory_id) {
         this.factory_id = factory_id;
     }
+
+    @Override
+    public String toString() {
+        return "t_product_schedule{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", schedule_seq='" + schedule_seq + '\'' +
+                ", schedule_count=" + schedule_count +
+                ", schedule_status=" + schedule_status +
+                ", plan_id=" + plan_id +
+                ", product_id=" + product_id +
+                ", equipment_id=" + equipment_id +
+                ", start_date=" + start_date +
+                ", end_date=" + end_date +
+                ", factory_id=" + factory_id +
+                '}';
+    }
 }

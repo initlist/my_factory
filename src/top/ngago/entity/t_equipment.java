@@ -122,4 +122,21 @@ public class t_equipment {
     public void setFactory_id(int factory_id) {
         this.factory_id = factory_id;
     }
+
+    @Override
+    public String toString() {
+        return "t_equipment{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", equipment_seq='" + equipment_seq + '\'' +
+                ", equipment_name='" + equipment_name + '\'' +
+                ", equipment_img_url='" + equipment_img_url + '\'' +
+                ", equipment_status=" + equipment_status +
+                ", factory_id=" + factory_id +
+                '}';
+    }
 }

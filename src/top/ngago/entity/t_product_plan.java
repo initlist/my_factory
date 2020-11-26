@@ -162,4 +162,25 @@ public class t_product_plan {
     public void setFactory_id(int factory_id) {
         this.factory_id = factory_id;
     }
+
+    @Override
+    public String toString() {
+        return "t_product_plan{" +
+                "id=" + id +
+                ", flag=" + flag +
+                ", create_time=" + create_time +
+                ", create_userid=" + create_userid +
+                ", update_time=" + update_time +
+                ", update_userid=" + update_userid +
+                ", plan_seq='" + plan_seq + '\'' +
+                ", order_id=" + order_id +
+                ", product_id=" + product_id +
+                ", plan_count=" + plan_count +
+                ", delivery_date=" + delivery_date +
+                ", plan_start_date=" + plan_start_date +
+                ", plan_end_date=" + plan_end_date +
+                ", plan_status=" + plan_status +
+                ", factory_id=" + factory_id +
+                '}';
+    }
 }

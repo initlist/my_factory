@@ -70,4 +70,16 @@ public class t_equipment_product {
     public void setFactory_id(int factory_id) {
         this.factory_id = factory_id;
     }
+
+    @Override
+    public String toString() {
+        return "t_equipment_product{" +
+                "id=" + id +
+                ", equipment_id=" + equipment_id +
+                ", product_id=" + product_id +
+                ", yield=" + yield +
+                ", unit=" + unit +
+                ", factory_id=" + factory_id +
+                '}';
+    }
 }
