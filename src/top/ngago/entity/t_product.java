@@ -2,6 +2,9 @@ package top.ngago.entity;
 
 import java.util.Date;
 
+/**
+ * 用于定义产品
+ */
 public class t_product {
     private int id;
     private int flag;
@@ -15,6 +18,19 @@ public class t_product {
     private int factory_id;
 
     public t_product() {
+    }
+
+    public t_product(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String product_num, String product_name, String product_img_url, int factory_id) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.product_num = product_num;
+        this.product_name = product_name;
+        this.product_img_url = product_img_url;
+        this.factory_id = factory_id;
     }
 
     public int getId() {

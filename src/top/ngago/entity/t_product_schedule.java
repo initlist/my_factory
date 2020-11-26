@@ -2,6 +2,9 @@ package top.ngago.entity;
 
 import java.util.Date;
 
+/**
+ * 生产调度表
+ */
 public class t_product_schedule {
     private int id;
     private int flag;

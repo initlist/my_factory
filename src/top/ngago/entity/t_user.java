@@ -2,6 +2,9 @@ package top.ngago.entity;
 
 import java.util.Date;
 
+/**
+ * 用户表
+ */
 public class t_user {
     private int id;
     private int flag;

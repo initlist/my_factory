@@ -2,6 +2,9 @@ package top.ngago.entity;
 
 import java.util.Date;
 
+/**
+ * 报工表
+ */
 public class t_daily_work {
     private int id;
     private int flag;

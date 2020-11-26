@@ -2,6 +2,9 @@ package top.ngago.entity;
 
 import java.util.Date;
 
+/**
+ * 生产计划表
+ */
 public class t_product_plan {
     private int id;
     private int flag;

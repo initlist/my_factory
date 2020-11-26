@@ -1,5 +1,8 @@
 package top.ngago.entity;
 
+/**
+ * 设备与产品对应表
+ */
 public class t_equipment_product {
     private int id;
     private int equipment_id;
