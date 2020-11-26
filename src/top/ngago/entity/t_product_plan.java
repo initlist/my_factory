@@ -25,6 +25,24 @@ public class t_product_plan {
     public t_product_plan() {
     }
 
+    public t_product_plan(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String plan_seq, int order_id, int product_id, int plan_count, Date delivery_date, Date plan_start_date, Date plan_end_date, int plan_status, int factory_id) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.plan_seq = plan_seq;
+        this.order_id = order_id;
+        this.product_id = product_id;
+        this.plan_count = plan_count;
+        this.delivery_date = delivery_date;
+        this.plan_start_date = plan_start_date;
+        this.plan_end_date = plan_end_date;
+        this.plan_status = plan_status;
+        this.factory_id = factory_id;
+    }
+
     public int getId() {
         return id;
     }

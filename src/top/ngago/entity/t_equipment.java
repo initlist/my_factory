@@ -21,6 +21,20 @@ public class t_equipment {
     public t_equipment() {
     }
 
+    public t_equipment(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String equipment_seq, String equipment_name, String equipment_img_url, int equipment_status, int factory_id) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.equipment_seq = equipment_seq;
+        this.equipment_name = equipment_name;
+        this.equipment_img_url = equipment_img_url;
+        this.equipment_status = equipment_status;
+        this.factory_id = factory_id;
+    }
+
     public int getId() {
         return id;
     }

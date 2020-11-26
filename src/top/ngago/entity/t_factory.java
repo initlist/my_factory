@@ -23,6 +23,22 @@ public class t_factory {
     public t_factory() {
     }
 
+    public t_factory(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String bak, String factory_name, String factory_img_url, String factory_addr, String factory_url, int factory_worker, int factory_status) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.bak = bak;
+        this.factory_name = factory_name;
+        this.factory_img_url = factory_img_url;
+        this.factory_addr = factory_addr;
+        this.factory_url = factory_url;
+        this.factory_worker = factory_worker;
+        this.factory_status = factory_status;
+    }
+
     public int getId() {
         return id;
     }

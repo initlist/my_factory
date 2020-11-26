@@ -25,6 +25,24 @@ public class t_product_schedule {
     public t_product_schedule() {
     }
 
+    public t_product_schedule(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String schedule_seq, int schedule_count, int schedule_status, int plan_id, int product_id, int equipment_id, Date start_date, Date end_date, int factory_id) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.schedule_seq = schedule_seq;
+        this.schedule_count = schedule_count;
+        this.schedule_status = schedule_status;
+        this.plan_id = plan_id;
+        this.product_id = product_id;
+        this.equipment_id = equipment_id;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.factory_id = factory_id;
+    }
+
     public int getId() {
         return id;
     }

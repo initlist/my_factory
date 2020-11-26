@@ -14,6 +14,15 @@ public class t_equipment_product {
     public t_equipment_product() {
     }
 
+    public t_equipment_product(int id, int equipment_id, int product_id, int yield, int unit, int factory_id) {
+        this.id = id;
+        this.equipment_id = equipment_id;
+        this.product_id = product_id;
+        this.yield = yield;
+        this.unit = unit;
+        this.factory_id = factory_id;
+    }
+
     public int getId() {
         return id;
     }

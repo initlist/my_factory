@@ -25,6 +25,24 @@ public class t_user {
     public t_user() {
     }
 
+    public t_user(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, int user_status, String user_name, String user_real_name, String user_passwd, String user_job_num, String user_phone_num, String user_email, int role_id, int factory_id) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.user_status = user_status;
+        this.user_name = user_name;
+        this.user_real_name = user_real_name;
+        this.user_passwd = user_passwd;
+        this.user_job_num = user_job_num;
+        this.user_phone_num = user_phone_num;
+        this.user_email = user_email;
+        this.role_id = role_id;
+        this.factory_id = factory_id;
+    }
+
     public int getId() {
         return id;
     }

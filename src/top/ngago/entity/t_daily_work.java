@@ -27,6 +27,26 @@ public class t_daily_work {
     public t_daily_work() {
     }
 
+    public t_daily_work(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, int schedule_id, int equipment_id, String equipment_seq, Date start_time, Date end_time, int working_count, int qualified_count, int unqualified_cout, int complete_flag, int factory_id, String bak) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.schedule_id = schedule_id;
+        this.equipment_id = equipment_id;
+        this.equipment_seq = equipment_seq;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.working_count = working_count;
+        this.qualified_count = qualified_count;
+        this.unqualified_cout = unqualified_cout;
+        this.complete_flag = complete_flag;
+        this.factory_id = factory_id;
+        this.bak = bak;
+    }
+
     public int getId() {
         return id;
     }

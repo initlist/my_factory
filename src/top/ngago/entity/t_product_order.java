@@ -24,6 +24,23 @@ public class t_product_order {
     public t_product_order() {
     }
 
+    public t_product_order(int id, int flag, Date create_time, int create_userid, Date update_time, int update_userid, String order_seq, int order_source, int product_id, int product_count, Date end_date, int order_status, int factory_id, int factory_yield) {
+        this.id = id;
+        this.flag = flag;
+        this.create_time = create_time;
+        this.create_userid = create_userid;
+        this.update_time = update_time;
+        this.update_userid = update_userid;
+        this.order_seq = order_seq;
+        this.order_source = order_source;
+        this.product_id = product_id;
+        this.product_count = product_count;
+        this.end_date = end_date;
+        this.order_status = order_status;
+        this.factory_id = factory_id;
+        this.factory_yield = factory_yield;
+    }
+
     public int getId() {
         return id;
     }
