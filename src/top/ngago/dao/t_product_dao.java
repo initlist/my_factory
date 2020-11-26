@@ -26,7 +26,6 @@ public class t_product_dao extends BaseDML {
                     rs.getString("product_name"),
                     rs.getString("product_img_url"),
                     rs.getInt("factory_id")));
-
         }
         JDBCutils.close(rs, stmt, conn);
         return t_products;
