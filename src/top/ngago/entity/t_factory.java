@@ -6,19 +6,19 @@ import java.util.Date;
  * 工厂表
  */
 public class t_factory {
-    private int id;
-    private int flag;
+    private Integer id;
+    private Integer flag;
     private Date create_time;
-    private int create_userid;
+    private Integer create_userid;
     private Date update_time;
-    private int update_userid;
+    private Integer update_userid;
     private String bak;
     private String factory_name;
     private String factory_img_url;
     private String factory_addr;
     private String factory_url;
-    private int factory_worker;
-    private int factory_status;
+    private Integer factory_worker;
+    private Integer factory_status;
 
     public t_factory() {
     }
@@ -39,19 +39,19 @@ public class t_factory {
         this.factory_status = factory_status;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -63,11 +63,11 @@ public class t_factory {
         this.create_time = create_time;
     }
 
-    public int getCreate_userid() {
+    public Integer getCreate_userid() {
         return create_userid;
     }
 
-    public void setCreate_userid(int create_userid) {
+    public void setCreate_userid(Integer create_userid) {
         this.create_userid = create_userid;
     }
 
@@ -79,11 +79,11 @@ public class t_factory {
         this.update_time = update_time;
     }
 
-    public int getUpdate_userid() {
+    public Integer getUpdate_userid() {
         return update_userid;
     }
 
-    public void setUpdate_userid(int update_userid) {
+    public void setUpdate_userid(Integer update_userid) {
         this.update_userid = update_userid;
     }
 
@@ -127,19 +127,19 @@ public class t_factory {
         this.factory_url = factory_url;
     }
 
-    public int getFactory_worker() {
+    public Integer getFactory_worker() {
         return factory_worker;
     }
 
-    public void setFactory_worker(int factory_worker) {
+    public void setFactory_worker(Integer factory_worker) {
         this.factory_worker = factory_worker;
     }
 
-    public int getFactory_status() {
+    public Integer getFactory_status() {
         return factory_status;
     }
 
-    public void setFactory_status(int factory_status) {
+    public void setFactory_status(Integer factory_status) {
         this.factory_status = factory_status;
     }
 

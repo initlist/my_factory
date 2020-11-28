@@ -6,20 +6,20 @@ import java.util.Date;
  * 订单表
  */
 public class t_product_order {
-    private int id;
-    private int flag;
+    private Integer id;
+    private Integer flag;
     private Date create_time;
-    private int create_userid;
+    private Integer create_userid;
     private Date update_time;
-    private int update_userid;
+    private Integer update_userid;
     private String order_seq;
-    private int order_source;
-    private int product_id;
-    private int product_count;
+    private Integer order_source;
+    private Integer product_id;
+    private Integer product_count;
     private Date end_date;
-    private int order_status;
-    private int factory_id;
-    private int factory_yield;
+    private Integer order_status;
+    private Integer factory_id;
+    private Integer factory_yield;
 
     public t_product_order() {
     }
@@ -41,19 +41,19 @@ public class t_product_order {
         this.factory_yield = factory_yield;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -65,11 +65,11 @@ public class t_product_order {
         this.create_time = create_time;
     }
 
-    public int getCreate_userid() {
+    public Integer getCreate_userid() {
         return create_userid;
     }
 
-    public void setCreate_userid(int create_userid) {
+    public void setCreate_userid(Integer create_userid) {
         this.create_userid = create_userid;
     }
 
@@ -81,11 +81,11 @@ public class t_product_order {
         this.update_time = update_time;
     }
 
-    public int getUpdate_userid() {
+    public Integer getUpdate_userid() {
         return update_userid;
     }
 
-    public void setUpdate_userid(int update_userid) {
+    public void setUpdate_userid(Integer update_userid) {
         this.update_userid = update_userid;
     }
 
@@ -97,27 +97,27 @@ public class t_product_order {
         this.order_seq = order_seq;
     }
 
-    public int getOrder_source() {
+    public Integer getOrder_source() {
         return order_source;
     }
 
-    public void setOrder_source(int order_source) {
+    public void setOrder_source(Integer order_source) {
         this.order_source = order_source;
     }
 
-    public int getProduct_id() {
+    public Integer getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(int product_id) {
+    public void setProduct_id(Integer product_id) {
         this.product_id = product_id;
     }
 
-    public int getProduct_count() {
+    public Integer getProduct_count() {
         return product_count;
     }
 
-    public void setProduct_count(int product_count) {
+    public void setProduct_count(Integer product_count) {
         this.product_count = product_count;
     }
 
@@ -129,27 +129,27 @@ public class t_product_order {
         this.end_date = end_date;
     }
 
-    public int getOrder_status() {
+    public Integer getOrder_status() {
         return order_status;
     }
 
-    public void setOrder_status(int order_status) {
+    public void setOrder_status(Integer order_status) {
         this.order_status = order_status;
     }
 
-    public int getFactory_id() {
+    public Integer getFactory_id() {
         return factory_id;
     }
 
-    public void setFactory_id(int factory_id) {
+    public void setFactory_id(Integer factory_id) {
         this.factory_id = factory_id;
     }
 
-    public int getFactory_yield() {
+    public Integer getFactory_yield() {
         return factory_yield;
     }
 
-    public void setFactory_yield(int factory_yield) {
+    public void setFactory_yield(Integer factory_yield) {
         this.factory_yield = factory_yield;
     }
 

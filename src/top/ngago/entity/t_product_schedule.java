@@ -6,21 +6,21 @@ import java.util.Date;
  * 生产调度表
  */
 public class t_product_schedule {
-    private int id;
-    private int flag;
+    private Integer id;
+    private Integer flag;
     private Date create_time;
-    private int create_userid;
+    private Integer create_userid;
     private Date update_time;
-    private int update_userid;
+    private Integer update_userid;
     private String schedule_seq;
-    private int schedule_count;
-    private int schedule_status;
-    private int plan_id;
-    private int product_id;
-    private int equipment_id;
+    private Integer schedule_count;
+    private Integer schedule_status;
+    private Integer plan_id;
+    private Integer product_id;
+    private Integer equipment_id;
     private Date start_date;
     private Date end_date;
-    private int factory_id;
+    private Integer factory_id;
 
     public t_product_schedule() {
     }
@@ -43,19 +43,19 @@ public class t_product_schedule {
         this.factory_id = factory_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -67,11 +67,11 @@ public class t_product_schedule {
         this.create_time = create_time;
     }
 
-    public int getCreate_userid() {
+    public Integer getCreate_userid() {
         return create_userid;
     }
 
-    public void setCreate_userid(int create_userid) {
+    public void setCreate_userid(Integer create_userid) {
         this.create_userid = create_userid;
     }
 
@@ -83,11 +83,11 @@ public class t_product_schedule {
         this.update_time = update_time;
     }
 
-    public int getUpdate_userid() {
+    public Integer getUpdate_userid() {
         return update_userid;
     }
 
-    public void setUpdate_userid(int update_userid) {
+    public void setUpdate_userid(Integer update_userid) {
         this.update_userid = update_userid;
     }
 
@@ -99,43 +99,43 @@ public class t_product_schedule {
         this.schedule_seq = schedule_seq;
     }
 
-    public int getSchedule_count() {
+    public Integer getSchedule_count() {
         return schedule_count;
     }
 
-    public void setSchedule_count(int schedule_count) {
+    public void setSchedule_count(Integer schedule_count) {
         this.schedule_count = schedule_count;
     }
 
-    public int getSchedule_status() {
+    public Integer getSchedule_status() {
         return schedule_status;
     }
 
-    public void setSchedule_status(int schedule_status) {
+    public void setSchedule_status(Integer schedule_status) {
         this.schedule_status = schedule_status;
     }
 
-    public int getPlan_id() {
+    public Integer getPlan_id() {
         return plan_id;
     }
 
-    public void setPlan_id(int plan_id) {
+    public void setPlan_id(Integer plan_id) {
         this.plan_id = plan_id;
     }
 
-    public int getProduct_id() {
+    public Integer getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(int product_id) {
+    public void setProduct_id(Integer product_id) {
         this.product_id = product_id;
     }
 
-    public int getEquipment_id() {
+    public Integer getEquipment_id() {
         return equipment_id;
     }
 
-    public void setEquipment_id(int equipment_id) {
+    public void setEquipment_id(Integer equipment_id) {
         this.equipment_id = equipment_id;
     }
 
@@ -155,11 +155,11 @@ public class t_product_schedule {
         this.end_date = end_date;
     }
 
-    public int getFactory_id() {
+    public Integer getFactory_id() {
         return factory_id;
     }
 
-    public void setFactory_id(int factory_id) {
+    public void setFactory_id(Integer factory_id) {
         this.factory_id = factory_id;
     }
 

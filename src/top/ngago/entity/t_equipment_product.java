@@ -4,12 +4,12 @@ package top.ngago.entity;
  * 设备与产品对应表
  */
 public class t_equipment_product {
-    private int id;
-    private int equipment_id;
-    private int product_id;
-    private int yield;
-    private int unit;
-    private int factory_id;
+    private Integer id;
+    private Integer equipment_id;
+    private Integer product_id;
+    private Integer yield;
+    private Integer unit;
+    private Integer factory_id;
 
     public t_equipment_product() {
     }
@@ -23,51 +23,51 @@ public class t_equipment_product {
         this.factory_id = factory_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getEquipment_id() {
+    public Integer getEquipment_id() {
         return equipment_id;
     }
 
-    public void setEquipment_id(int equipment_id) {
+    public void setEquipment_id(Integer equipment_id) {
         this.equipment_id = equipment_id;
     }
 
-    public int getProduct_id() {
+    public Integer getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(int product_id) {
+    public void setProduct_id(Integer product_id) {
         this.product_id = product_id;
     }
 
-    public int getYield() {
+    public Integer getYield() {
         return yield;
     }
 
-    public void setYield(int yield) {
+    public void setYield(Integer yield) {
         this.yield = yield;
     }
 
-    public int getUnit() {
+    public Integer getUnit() {
         return unit;
     }
 
-    public void setUnit(int unit) {
+    public void setUnit(Integer unit) {
         this.unit = unit;
     }
 
-    public int getFactory_id() {
+    public Integer getFactory_id() {
         return factory_id;
     }
 
-    public void setFactory_id(int factory_id) {
+    public void setFactory_id(Integer factory_id) {
         this.factory_id = factory_id;
     }
 

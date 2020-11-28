@@ -6,21 +6,21 @@ import java.util.Date;
  * 用户表
  */
 public class t_user {
-    private int id;
-    private int flag;
+    private Integer id;
+    private Integer flag;
     private Date create_time;
-    private int create_userid;
+    private Integer create_userid;
     private Date update_time;
-    private int update_userid;
-    private int user_status;
+    private Integer update_userid;
+    private Integer user_status;
     private String user_name;
     private String user_real_name;
     private String user_passwd;
     private String user_job_num;
     private String user_phone_num;
     private String user_email;
-    private int role_id;
-    private int factory_id;
+    private Integer role_id;
+    private Integer factory_id;
 
     public t_user() {
     }
@@ -43,19 +43,19 @@ public class t_user {
         this.factory_id = factory_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -67,11 +67,11 @@ public class t_user {
         this.create_time = create_time;
     }
 
-    public int getCreate_userid() {
+    public Integer getCreate_userid() {
         return create_userid;
     }
 
-    public void setCreate_userid(int create_userid) {
+    public void setCreate_userid(Integer create_userid) {
         this.create_userid = create_userid;
     }
 
@@ -83,19 +83,19 @@ public class t_user {
         this.update_time = update_time;
     }
 
-    public int getUpdate_userid() {
+    public Integer getUpdate_userid() {
         return update_userid;
     }
 
-    public void setUpdate_userid(int update_userid) {
+    public void setUpdate_userid(Integer update_userid) {
         this.update_userid = update_userid;
     }
 
-    public int getUser_status() {
+    public Integer getUser_status() {
         return user_status;
     }
 
-    public void setUser_status(int user_status) {
+    public void setUser_status(Integer user_status) {
         this.user_status = user_status;
     }
 
@@ -147,19 +147,19 @@ public class t_user {
         this.user_email = user_email;
     }
 
-    public int getRole_id() {
+    public Integer getRole_id() {
         return role_id;
     }
 
-    public void setRole_id(int role_id) {
+    public void setRole_id(Integer role_id) {
         this.role_id = role_id;
     }
 
-    public int getFactory_id() {
+    public Integer getFactory_id() {
         return factory_id;
     }
 
-    public void setFactory_id(int factory_id) {
+    public void setFactory_id(Integer factory_id) {
         this.factory_id = factory_id;
     }
 

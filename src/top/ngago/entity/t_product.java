@@ -6,16 +6,16 @@ import java.util.Date;
  * 用于定义产品
  */
 public class t_product {
-    private int id;
-    private int flag;
+    private Integer id;
+    private Integer flag;
     private Date create_time;
-    private int create_userid;
+    private Integer create_userid;
     private Date update_time;
-    private int update_userid;
+    private Integer update_userid;
     private String product_num;
     private String product_name;
     private String product_img_url;
-    private int factory_id;
+    private Integer factory_id;
 
     public t_product() {
     }
@@ -33,19 +33,19 @@ public class t_product {
         this.factory_id = factory_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -57,11 +57,11 @@ public class t_product {
         this.create_time = create_time;
     }
 
-    public int getCreate_userid() {
+    public Integer getCreate_userid() {
         return create_userid;
     }
 
-    public void setCreate_userid(int create_userid) {
+    public void setCreate_userid(Integer create_userid) {
         this.create_userid = create_userid;
     }
 
@@ -73,11 +73,11 @@ public class t_product {
         this.update_time = update_time;
     }
 
-    public int getUpdate_userid() {
+    public Integer getUpdate_userid() {
         return update_userid;
     }
 
-    public void setUpdate_userid(int update_userid) {
+    public void setUpdate_userid(Integer update_userid) {
         this.update_userid = update_userid;
     }
 
@@ -105,11 +105,11 @@ public class t_product {
         this.product_img_url = product_img_url;
     }
 
-    public int getFactory_id() {
+    public Integer getFactory_id() {
         return factory_id;
     }
 
-    public void setFactory_id(int factory_id) {
+    public void setFactory_id(Integer factory_id) {
         this.factory_id = factory_id;
     }
 
