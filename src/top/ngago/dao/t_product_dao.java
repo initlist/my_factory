@@ -1,42 +1,37 @@
 package top.ngago.dao;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import top.ngago.entity.t_product;
 
+import java.util.Date;
 import java.sql.*;
 import java.util.List;
 
-public class t_product_dao extends BaseDML {
-    List<Object> t_products = null;
+public class t_product_dao {
+    List<t_product> t_products = null;
 
-    @Override
-    public List<Object> search(int i) throws SQLException {
-        Connection conn = JDBCutils.getConnection();
-        String sql = "select * from t_product limit(?-1)*5,5";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, i);
-        ResultSet rs = stmt.executeQuery();
-        while (rs.next()) {
-            t_products.add(new t_product(rs.getInt("id"),
-                    rs.getInt("flag"),
-                    rs.getTime("create_time"),
-                    rs.getInt("create_userid"),
-                    rs.getTime("update_time"),
-                    rs.getInt("update_userid"),
-                    rs.getString("product_num"),
-                    rs.getString("product_name"),
-                    rs.getString("product_img_url"),
-                    rs.getInt("factory_id")));
-        }
-        JDBCutils.close(rs, stmt, conn);
-        return t_products;
+    public List<t_product> search(int i) throws SQLException {
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        String sql = "select * from t_product where id=?";
+        t_products = template.query(sql, new BeanPropertyRowMapper<t_product>(t_product.class), i);
+        return this.t_products;
     }
 
     public boolean inserter(t_product ob) throws SQLException {
-        Connection conn = JDBCutils.getConnection();
-        String sql = "insert into t_product values(?,?,?,?,?,?,?,?)";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setDate(1, (Date) ob.getCreate_time());
-
+        String sql = "insert into t_product values (?,?,?,?,?,?,?,?,?,?)";
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        Integer id = ob.getId();
+        Integer flag = ob.getFlag();
+        Date create_time = ob.getCreate_time();
+        Integer create_userid = ob.getCreate_userid();
+        Date update_time = ob.getUpdate_time();
+        Integer update_userid = ob.getUpdate_userid();
+        String product_num = ob.getProduct_num();
+        String product_name = ob.getProduct_name();
+        String product_img_url = ob.getProduct_img_url();
+        Integer factory_id = ob.getFactory_id();
+        int update = template.update(sql, create_time, create_userid, update_time, update_userid, product_num, product_name, product_img_url, factory_id);
         return false;
     }
 }

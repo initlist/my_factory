@@ -2,6 +2,8 @@ package top.ngago.dao;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.junit.Test;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -15,6 +17,7 @@ import java.util.Properties;
 public class JDBCutils {
     //定义成员变量 DataSource
     private static DataSource ds;
+    private static JdbcTemplate template;
 
     /**
      * 类加载时初始化连接池对象
@@ -25,7 +28,8 @@ public class JDBCutils {
         try {
             //加载配置文件
             pro.load(is);
-            DataSource ds = DruidDataSourceFactory.createDataSource(pro);
+            ds = DruidDataSourceFactory.createDataSource(pro);
+            template = new JdbcTemplate(ds);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -38,6 +42,10 @@ public class JDBCutils {
      */
     public static Connection getConnection() throws SQLException {
         return ds.getConnection();
+    }
+
+    public static JdbcTemplate getJdbcTemplate() {
+        return template;
     }
 
     /**
@@ -87,4 +95,5 @@ public class JDBCutils {
             e.printStackTrace();
         }
     }
+
 }
