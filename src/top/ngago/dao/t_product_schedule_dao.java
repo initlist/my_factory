@@ -44,7 +44,7 @@ public class t_product_schedule_dao {
 
     public int update(t_product_schedule ob) {
         //写sql语句
-        String sql = "update t_product_schedule set :id=id,:flag=flag,:create_time=create_time,:create_userid=create_userid,:update_time=update_time,:update_userid=update_userid,:schedule_seq=schedule_seq,:schedule_count=schedule_count,:schedule_status=schedule_status,:plan_id=plan_id,:product_id=product_id,:equipment_id=equipment_id,:start_date=start_date,:end_date=end_date,:factory_id=factory_id where id=:id";
+        String sql = "update t_product_schedule set id=:id,flag=:flag,create_time=:create_time,create_userid=:create_userid,update_time=:update_time,update_userid=:update_userid,schedule_seq=:schedule_seq,schedule_count=:schedule_count,schedule_status=:schedule_status,plan_id=:plan_id,product_id=:product_id,equipment_id=:equipment_id,start_date=:start_date,end_date=:end_date,factory_id=:factory_id where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
