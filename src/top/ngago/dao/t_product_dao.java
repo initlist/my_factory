@@ -1,7 +1,12 @@
 package top.ngago.dao;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import top.ngago.entity.t_daily_work;
 import top.ngago.entity.t_product;
 
 import java.util.Date;
@@ -10,28 +15,58 @@ import java.util.List;
 
 public class t_product_dao {
     List<t_product> t_products = null;
+    JdbcTemplate template = JDBCutils.getJdbcTemplate();
 
-    public List<t_product> search(int i) throws SQLException {
-        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+    public String search(int i) throws SQLException {
         String sql = "select * from t_product where id=?";
         t_products = template.query(sql, new BeanPropertyRowMapper<t_product>(t_product.class), i);
-        return this.t_products;
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_products);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public boolean inserter(t_product ob) throws SQLException {
-        String sql = "insert into t_product values (?,?,?,?,?,?,?,?,?,?)";
+
+    public int inserter(t_product ob) {
+        //写sql语句
+        String sql = "insert into t_product(id,flag,create_time,create_userid,update_time,update_time,schedule_id,equipment_id,equipment_seq,start_time,end_time,working_count,qualified_count,unqualified_cout,unqualified_cout,complete_flag,factory_id,bak) " +
+                "values (:id,:flag,:create_time,:create_userid,:update_time,:update_time,:schedule_id,:equipment_id,:equipment_seq,:start_time,:end_time,:working_count,:qualified_count,:unqualified_cout,:unqualified_cout,:complete_flag,:factory_id,:bak)";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
         JdbcTemplate template = JDBCutils.getJdbcTemplate();
-        Integer id = ob.getId();
-        Integer flag = ob.getFlag();
-        Date create_time = ob.getCreate_time();
-        Integer create_userid = ob.getCreate_userid();
-        Date update_time = ob.getUpdate_time();
-        Integer update_userid = ob.getUpdate_userid();
-        String product_num = ob.getProduct_num();
-        String product_name = ob.getProduct_name();
-        String product_img_url = ob.getProduct_img_url();
-        Integer factory_id = ob.getFactory_id();
-        int update = template.update(sql, create_time, create_userid, update_time, update_userid, product_num, product_name, product_img_url, factory_id);
-        return false;
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
     }
+
+    public int update(t_product ob) {
+        //写sql语句
+        String sql = "update  set  where id=:id";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
+    }
+
+    public int delete(t_product ob) {
+        //写sql语句
+        String sql = "update t_daily_work set flag = 1 where id=:id";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
+    }
+
+
 }

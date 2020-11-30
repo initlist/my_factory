@@ -1,5 +1,7 @@
 package top.ngago.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -8,16 +10,21 @@ import java.util.Date;
 public class t_product_plan {
     private Integer id;
     private Integer flag;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date create_time;
     private Integer create_userid;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date update_time;
     private Integer update_userid;
     private String plan_seq;
     private Integer order_id;
     private Integer product_id;
     private Integer plan_count;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date delivery_date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date plan_start_date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date plan_end_date;
     private Integer plan_status;
     private Integer factory_id;

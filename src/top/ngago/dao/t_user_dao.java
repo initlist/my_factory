@@ -1,7 +1,14 @@
 package top.ngago.dao;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import top.ngago.entity.t_daily_work;
+import top.ngago.entity.t_product_plan;
 import top.ngago.entity.t_user;
 
 import java.sql.SQLException;
@@ -9,11 +16,66 @@ import java.util.List;
 
 public class t_user_dao {
     List<t_user> t_users = null;
+    JdbcTemplate template = JDBCutils.getJdbcTemplate();
 
-    public List<t_user> search(int i) throws SQLException {
-        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+    public String search(int i) throws SQLException {
         String sql = "select * from t_user where id=?";
         t_users = template.query(sql, new BeanPropertyRowMapper<t_user>(t_user.class), i);
-        return this.t_users;
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_users);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public t_user search(t_user ob) {
+        String sql = "select * from t_user where user_name=? and user_passwd=?";
+        t_user t_user = null;
+        try {
+            t_user = template.queryForObject(sql, new BeanPropertyRowMapper<t_user>(t_user.class), ob.getUser_name(), ob.getUser_passwd());
+            return t_user;
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public int inserter(t_user ob) {
+        //写sql语句
+        String sql = "insert into values";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
+    }
+
+    public int update(t_user ob) {
+        //写sql语句
+        String sql = "update  set  where id=:id";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
+    }
+
+    public int delete(t_user ob) {
+        //写sql语句
+        String sql = "update t_daily_work set flag = 1 where id=:id";
+        //将实体对象转化为BeanPropertySqlParameterSource对象
+        BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
+        //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
+        JdbcTemplate template = JDBCutils.getJdbcTemplate();
+        NamedParameterJdbcTemplate npjt = new NamedParameterJdbcTemplate(template.getDataSource());
+        //通过NamedParameterJdbcTemplate对象执行update操作
+        return npjt.update(sql, sps);
     }
 }
