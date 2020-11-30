@@ -46,7 +46,7 @@ public class t_product_dao {
 
     public int update(t_product ob) {
         //写sql语句
-        String sql = "update  set  where id=:id";
+        String sql = "update t_product set :id=id,:flag=flag,:create_time=create_time,:create_userid=create_userid,:update_time=update_time,:update_time=update_time,:schedule_id=schedule_id,:equipment_id=equipment_id,:equipment_seq=equipment_seq,:start_time=start_time,:end_time=end_time,:working_count=working_count,:qualified_count=qualified_count,:unqualified_cout=unqualified_cout,:unqualified_cout=unqualified_cout,:complete_flag=complete_flag,:factory_id=factory_id,:bak=bak where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
