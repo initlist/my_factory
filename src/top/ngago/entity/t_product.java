@@ -11,7 +11,7 @@ public class t_product {
     private Integer id;
     private Integer flag;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date create_time;
+    private Date create_time;//update t_product set id=:id,flag=:flag,create_time=:create_time,create_userid=:create_userid,update_time=:update_time,update_userid=:update_userid,product_num=:product_num,product_name=:product_name,product_img_url=:product_img_url,factory_id=:factory_id where id=:id";
     private Integer create_userid;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date update_time;

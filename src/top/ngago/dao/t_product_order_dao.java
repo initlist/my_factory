@@ -65,4 +65,18 @@ public class t_product_order_dao {
         //通过NamedParameterJdbcTemplate对象执行update操作
         return npjt.update(sql, sps);
     }
+
+    public String searchAll() {
+        String sql = "select * from t_product_order";
+        t_product_orders = template.query(sql, new BeanPropertyRowMapper<t_product_order>(t_product_order.class));
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_product_orders);
+            System.out.println(json);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
