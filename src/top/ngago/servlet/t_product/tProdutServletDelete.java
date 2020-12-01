@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/tProductServletUpdate")
-public class tProductServletUpdate extends HttpServlet {
+@WebServlet("/tProdutServletDelete")
+public class tProdutServletDelete extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //创建核心文件
@@ -26,7 +26,7 @@ public class tProductServletUpdate extends HttpServlet {
         //把前端传来的json转为实体类对象
         t_product t_product = mapper.readValue(obj, t_product.class);
         //执行update操作
-        t_product_dao.update(t_product);
+        t_product_dao.delete(t_product);
     }
 
     @Override

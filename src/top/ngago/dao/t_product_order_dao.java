@@ -56,7 +56,7 @@ public class t_product_order_dao {
 
     public int delete(t_product_order ob) {
         //写sql语句
-        String sql = "update t_daily_work set flag = 1 where id=:id";
+        String sql = "update t_product_order set flag = 1 where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
@@ -66,7 +66,7 @@ public class t_product_order_dao {
         return npjt.update(sql, sps);
     }
 
-    public String searchAll() {
+    public String search() {
         String sql = "select * from t_product_order";
         t_product_orders = template.query(sql, new BeanPropertyRowMapper<t_product_order>(t_product_order.class));
         ObjectMapper mapper = new ObjectMapper();

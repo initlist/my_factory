@@ -19,6 +19,19 @@ public class t_factory_dao {
 
     public String search(int i) throws SQLException {
         String sql = "select * from t_factory where id=?";
+        t_factorys = template.query(sql, new BeanPropertyRowMapper<t_factory>(t_factory.class), i);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_factorys);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String search() throws SQLException {
+        String sql = "select * from t_factory where id=?";
         t_factorys = template.query(sql, new BeanPropertyRowMapper<t_factory>(t_factory.class));
         ObjectMapper mapper = new ObjectMapper();
         try {

@@ -58,7 +58,7 @@ public class t_product_plan_dao {
 
     public int delete(t_product_plan ob) {
         //写sql语句
-        String sql = "update t_daily_work set flag = 1 where id=:id";
+        String sql = "update t_product_plan set flag = 1 where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象

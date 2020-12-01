@@ -17,7 +17,7 @@ public class t_product_dao {
     List<t_product> t_products = null;
     JdbcTemplate template = JDBCutils.getJdbcTemplate();
 
-    public String searchAll() {
+    public String search() {
         String sql = "select * from t_product";
         t_products = template.query(sql, new BeanPropertyRowMapper<t_product>(t_product.class));
         ObjectMapper mapper = new ObjectMapper();
@@ -71,7 +71,7 @@ public class t_product_dao {
 
     public int delete(t_product ob) {
         //写sql语句
-        String sql = "update t_daily_work set flag = 1 where id=:id";
+        String sql = "update t_product set flag = 1 where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象

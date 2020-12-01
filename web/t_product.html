@@ -312,8 +312,8 @@
                                 <tbody id="text-body">
                                 </tbody>
                             </table>
-                            <button onclick="getList()">查询</button>
                         </div>
+                        <button onclick="getList()">查询</button>
                         <!-- END DATA TABLE-->
                     </div>
                 </div>
@@ -382,7 +382,7 @@
                     html = html + '<td name=' + 'product_img_url' + '>' + data[i].product_img_url + '</td>';
                     html = html + '<td name=' + 'factory_id' + '>' + data[i].factory_id + '</td>';
                     html = html + '<td name="update">' + '<button class="btn btn-warning" onclick="update(this)">update</button>' + '</td>';
-                    html = html + '<td name="delete">' + '<button class="btn btn-danger" onclick="">delete</button>' + '</td>';
+                    html = html + '<td name="delete">' + '<button class="btn btn-danger" onclick="del(this)">delete</button>' + '</td>';
                     html = html + '</tr> ';
                 }
                 $('#text-body').html(html);//通过jquery方式获取table，并把tr,td的html输出到table中
@@ -409,7 +409,7 @@
         // 重新赋值
         thisLine.find("td[name='id']").html("<input value=" + id + ">");
         thisLine.find("td[name='flag']").html("<input value=" + flag + ">");
-        thisLine.find("td[name='create_time']").html("<input value=" + create_time + ">");
+        thisLine.find("td[name='create_time']").html("<input type='date' value=" + create_time + ">");
         thisLine.find("td[name='create_userid']").html("<input value=" + create_userid + ">");
         thisLine.find("td[name='update_time']").html("<input value=" + update_time + ">");
         thisLine.find("td[name='update_userid']").html("<input value=" + update_userid + ">");
@@ -419,7 +419,7 @@
         thisLine.find("td[name='factory_id']").html("<input value=" + factory_id + ">");
         thisLine.find("td[name='update']").html('<button class="btn btn-warning" onclick="commit(this)">commit</button>');
         thisLine.find("td[name='delete']").html('<button class="btn btn-warning" onclick="getList()">cancel</button>');
-        var html = '';
+
     }
 
     function commit(thisObj) {
@@ -454,7 +454,9 @@
             contentType: "application/json;charset=utf-8",
             dataType: "json",//返回的数据类型
         })
-        getList();
+        setTimeout(function () {
+            getList();
+        }, 100);
     }
 
     $(document).ready(function () {
@@ -462,9 +464,24 @@
         getList();
     })
 
-    function update(thisObj) {
+    function del(thisObj) {
 
+        var id = $(thisObj).closest("tr").find("td[name='id']").html();
+        var add = {id: id};
+        var obj = JSON.stringify(add);
+        alert(id);
+        $.ajax({
+            type: "GET",
+            url: "tProdutServletDelete",
+            data: {obj: obj},
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",//返回的数据类型
+        })
+        setTimeout(function () {
+            getList();
+        }, 100);
     }
+
 </script>
 
 

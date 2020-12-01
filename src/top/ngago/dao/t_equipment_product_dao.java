@@ -30,6 +30,19 @@ public class t_equipment_product_dao {
         }
     }
 
+    public String search() throws SQLException {
+        String sql = "select * from t_equipment_product where id=?";
+        t_equipment_products = template.query(sql, new BeanPropertyRowMapper<t_equipment_product>(t_equipment_product.class));
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_equipment_products);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public int inserter(t_equipment_product ob) {
         //写sql语句
         String sql = "insert into t_equipment_product(id,equipment_id,product_id,yield,unit,factory_id) values(:id,:equipment_id,:product_id,:yield,:unit,:factory_id)";
