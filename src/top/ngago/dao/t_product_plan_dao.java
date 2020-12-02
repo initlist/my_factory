@@ -31,6 +31,19 @@ public class t_product_plan_dao {
         }
     }
 
+    public String search() throws SQLException {
+        String sql = "select * from t_product_plan";
+        t_product_plans = template.query(sql, new BeanPropertyRowMapper<t_product_plan>(t_product_plan.class));
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(t_product_plans);
+            return json;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public int inserter(t_product_plan ob) {
         //写sql语句
@@ -46,7 +59,7 @@ public class t_product_plan_dao {
 
     public int update(t_product_plan ob) {
         //写sql语句
-        String sql = "update t_product_plan set id=:id,flag=:flag,create_time=:create_timecreate_userid=:create_useridupdate_time=:update_timeupdate_userid=:update_userid,plan_seq=:plan_seq,order_id=:order_id,product_id=:product_id,plan_count=:plan_count,delivery_date=:delivery_date,plan_start_date=:plan_start_date,plan_end_date=:plan_end_date,plan_status=:plan_status,factory_id=:factory_id where id=:id";
+        String sql = "update t_product_plan set id=:id,flag=:flag,create_time=:create_time,create_userid=:create_userid,update_time=:update_time,update_userid=:update_userid,plan_seq=:plan_seq,order_id=:order_id,product_id=:product_id,plan_count=:plan_count,delivery_date=:delivery_date,plan_start_date=:plan_start_date,plan_end_date=:plan_end_date,plan_status=:plan_status,factory_id=:factory_id where id=:id";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象
