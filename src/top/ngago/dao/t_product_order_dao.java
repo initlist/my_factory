@@ -32,7 +32,7 @@ public class t_product_order_dao {
 
     public int inserter(t_product_order ob) {
         //写sql语句
-        String sql = "insert into t_product(id,flag,create_time,create_userid,update_time,update_userid,update_time,update_userid,order_seq,order_source,product_id,product_count,end_date,order_status,factory_id,factory_yield) values(:id,:flag,:create_time,:create_userid,:update_time,:update_userid,:update_time,:update_userid,:order_seq,:order_source,:product_id,:product_count,:end_date,:order_status,:factory_id,:factory_yield)";
+        String sql = "insert into t_product_order (id,flag,create_time,create_userid,update_time,update_userid,order_seq,order_source,product_id,product_count,end_date,order_status,factory_id,factory_yield) values(:id,:flag,:create_time,:create_userid,:update_time,:update_userid,:order_seq,:order_source,:product_id,:product_count,:end_date,:order_status,:factory_id,:factory_yield)";
         //将实体对象转化为BeanPropertySqlParameterSource对象
         BeanPropertySqlParameterSource sps = new BeanPropertySqlParameterSource(ob);
         //获取JdbcTemplate对象的DateSource用于构建NamedParameterJdbcTemplate对象

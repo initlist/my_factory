@@ -59,7 +59,7 @@
                         <a href="/home.html">
                             <i class="fas fa-home"></i>主页</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="t_product_order.html">
                             <i class="fas fa-th-list"></i>订单管理</a>
                         <!--                            拥有多少未处理订单-->
@@ -69,7 +69,7 @@
                         <a href="t_product_schedule.html">
                             <i class="fas fa-th-list"></i>生产调度管理</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="t_product.html">
                             <i class="fas fa-th-list"></i>产品管理</a>
                     </li>
@@ -295,18 +295,22 @@
                             <table class="table table-borderless table-data3">
                                 <thead>
                                 <tr>
-                                    <th>id</th>
-                                    <th>flag</th>
-                                    <th>create_time</th>
-                                    <th>create_userid</th>
-                                    <th>update_time</th>
-                                    <th>update_userid</th>
-                                    <th>product_num</th>
-                                    <th>product_name</th>
-                                    <th>product_img_url</th>
-                                    <th>factory_id</th>
-                                    <th>change</th>
-                                    <th>delete</th>
+                                    <td>id</td>
+                                    <td>flag</td>
+                                    <td>create_time</td>
+                                    <td>create_userid</td>
+                                    <td>update_time</td>
+                                    <td>update_userid</td>
+                                    <td>order_seq</td>
+                                    <td>order_source</td>
+                                    <td>product_id</td>
+                                    <td>product_count</td>
+                                    <td>end_date</td>
+                                    <td>order_status</td>
+                                    <td>factory_id</td>
+                                    <td>factory_yield</td>
+                                    <td>change</td>
+                                    <td>delete</td>
                                 </tr>
                                 </thead>
                                 <tbody id="text-body">
@@ -334,7 +338,6 @@
         </div>
     </div>
 </div>
-<!--medium-->
 <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
      style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -352,10 +355,14 @@
                 create_userid:<input type="text" class="form-control" name="create_userid">
                 update_time:<input type="date" class="form-control" name="update_time">
                 update_userid:<input type="text" class="form-control" name="update_userid">
-                product_num:<input type="text" class="form-control" name="product_num">
-                product_name:<input type="text" class="form-control" name="product_name">
-                product_img_url:<input type="text" class="form-control" name="product_img_url">
+                order_seq:<input type="text" class="form-control" name="order_seq">
+                order_source:<input type="text" class="form-control" name="order_source">
+                product_id:<input type="text" class="form-control" name="product_id">
+                product_count:<input type="text" class="form-control" name="product_count">
+                end_date:<input type="date" class="form-control" name="end_date">
+                order_status:<input type="text" class="form-control" name="order_status">
                 factory_id:<input type="text" class="form-control" name="factory_id">
+                factory_yield:<input type="text" class="form-control" name="factory_yield">
                 <!--                </div>-->
                 <!--                <div class="modal-footer">-->
                 <!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
@@ -397,7 +404,7 @@
     function getList() {
         $.ajax({
             type: "GET",
-            url: "/user/tProductServlet",
+            url: "/user/tProductOrderServlet",
             dataType: "json",//返回的数据类型
 
             success: function (data) {
@@ -411,10 +418,14 @@
                     html = html + '<td name=' + 'create_userid' + '>' + data[i].create_userid + '</td>';
                     html = html + '<td name=' + 'update_time' + '>' + data[i].update_time + '</td>';
                     html = html + '<td name=' + 'update_userid' + '>' + data[i].update_userid + '</td>';
-                    html = html + '<td name=' + 'product_num' + '>' + data[i].product_num + '</td>';
-                    html = html + '<td name=' + 'product_name' + '>' + data[i].product_name + '</td>';
-                    html = html + '<td name=' + 'product_img_url' + '>' + data[i].product_img_url + '</td>';
+                    html = html + '<td name=' + 'order_seq' + '>' + data[i].order_seq + '</td>';
+                    html = html + '<td name=' + 'order_source' + '>' + data[i].order_source + '</td>';
+                    html = html + '<td name=' + 'product_id' + '>' + data[i].product_id + '</td>';
+                    html = html + '<td name=' + 'product_count' + '>' + data[i].product_count + '</td>';
+                    html = html + '<td name=' + 'end_date' + '>' + data[i].end_date + '</td>';
+                    html = html + '<td name=' + 'order_status' + '>' + data[i].order_status + '</td>';
                     html = html + '<td name=' + 'factory_id' + '>' + data[i].factory_id + '</td>';
+                    html = html + '<td name=' + 'factory_yield' + '>' + data[i].factory_yield + '</td>';
                     html = html + '<td name="update">' + '<button class="btn btn-warning" onclick="update(this)">update</button>' + '</td>';
                     html = html + '<td name="delete">' + '<button class="btn btn-danger" onclick="del(this)">delete</button>' + '</td>';
                     html = html + '</tr> ';
@@ -436,24 +447,31 @@
         var create_userid = thisLine.find("td[name='create_userid']").html();
         var update_time = thisLine.find("td[name='update_time']").html();
         var update_userid = thisLine.find("td[name='update_userid']").html();
-        var product_num = thisLine.find("td[name='product_num']").html();
-        var product_name = thisLine.find("td[name='product_name']").html();
-        var product_img_url = thisLine.find("td[name='product_img_url']").html();
+        var order_seq = thisLine.find("td[name='order_seq']").html();
+        var order_source = thisLine.find("td[name='order_source']").html();
+        var product_id = thisLine.find("td[name='product_id']").html();
+        var product_count = thisLine.find("td[name='product_count']").html();
+        var end_date = thisLine.find("td[name='end_date']").html();
+        var order_status = thisLine.find("td[name='order_status']").html();
         var factory_id = thisLine.find("td[name='factory_id']").html();
+        var factory_yield = thisLine.find("td[name='factory_yield']").html();
         // 重新赋值
         thisLine.find("td[name='id']").html("<input value=" + id + ">");
         thisLine.find("td[name='flag']").html("<input value=" + flag + ">");
         thisLine.find("td[name='create_time']").html("<input type='date' value=" + create_time + ">");
         thisLine.find("td[name='create_userid']").html("<input value=" + create_userid + ">");
-        thisLine.find("td[name='update_time']").html("<input value=" + update_time + ">");
+        thisLine.find("td[name='update_time']").html("<input type='date' value=" + update_time + ">");
         thisLine.find("td[name='update_userid']").html("<input value=" + update_userid + ">");
-        thisLine.find("td[name='product_num']").html("<input value=" + product_num + ">");
-        thisLine.find("td[name='product_name']").html("<input value=" + product_name + ">");
-        thisLine.find("td[name='product_img_url']").html("<input value=" + product_img_url + ">");
+        thisLine.find("td[name='order_seq']").html("<input value=" + order_seq + ">");
+        thisLine.find("td[name='order_source']").html("<input value=" + order_source + ">");
+        thisLine.find("td[name='product_id']").html("<input value=" + product_id + ">");
+        thisLine.find("td[name='product_count']").html("<input value=" + product_count + ">");
+        thisLine.find("td[name='end_date']").html("<input type='date' value=" + end_date + ">");
+        thisLine.find("td[name='order_status']").html("<input value=" + order_status + ">");
         thisLine.find("td[name='factory_id']").html("<input value=" + factory_id + ">");
+        thisLine.find("td[name='factory_yield']").html("<input value=" + factory_yield + ">");
         thisLine.find("td[name='update']").html('<button class="btn btn-warning" onclick="commit(this)">commit</button>');
         thisLine.find("td[name='delete']").html('<button class="btn btn-warning" onclick="getList()">cancel</button>');
-
     }
 
     function commit(thisObj) {
@@ -464,26 +482,35 @@
         var create_userid = thisLine.find("td[name='create_userid']").find("input").val();
         var update_time = thisLine.find("td[name='update_time']").find("input").val();
         var update_userid = thisLine.find("td[name='update_userid']").find("input").val();
-        var product_num = thisLine.find("td[name='product_num']").find("input").val();
-        var product_name = thisLine.find("td[name='product_name']").find("input").val();
-        var product_img_url = thisLine.find("td[name='product_img_url']").find("input").val();
+        var order_seq = thisLine.find("td[name='order_seq']").find("input").val();
+        var order_source = thisLine.find("td[name='order_source']").find("input").val();
+        var product_id = thisLine.find("td[name='product_id']").find("input").val();
+        var product_count = thisLine.find("td[name='product_count']").find("input").val();
+        var end_date = thisLine.find("td[name='end_date']").find("input").val();
+        var order_status = thisLine.find("td[name='order_status']").find("input").val();
         var factory_id = thisLine.find("td[name='factory_id']").find("input").val();
+        var factory_yield = thisLine.find("td[name='factory_yield']").find("input").val();
         var add = {
-            id: id,
+            id: id == "null" ? null : id,
             flag: flag == "null" ? null : flag,
             create_time: create_time == "null" ? null : create_time,
             create_userid: create_userid == "null" ? null : create_userid,
             update_time: update_time == "null" ? null : update_time,
             update_userid: update_userid == "null" ? null : update_userid,
-            product_num: product_num == "null" ? null : product_num,
-            product_name: product_name == "null" ? null : product_name,
-            product_img_url: product_img_url == "null" ? null : product_img_url,
-            factory_id: factory_id == "null" ? null : factory_id
+            order_seq: order_seq == "null" ? null : order_seq,
+            order_source: order_source == "null" ? null : order_source,
+            product_id: product_id == "null" ? null : product_id,
+            product_count: product_count == "null" ? null : product_count,
+            end_date: end_date == "null" ? null : end_date,
+            order_status: order_status == "null" ? null : order_status,
+            factory_id: factory_id == "null" ? null : factory_id,
+            factory_yield: factory_yield == "null" ? null : factory_yield
         }
-        var obj = JSON.stringify(add);
+        const obj = JSON.stringify(add);
+        alert(obj);
         $.ajax({
             type: "GET",
-            url: "/user/tProductServletUpdate",
+            url: "/user/tProductOrderServletUpdate",
             data: {obj: obj},
             contentType: "application/json;charset=utf-8",
             dataType: "json",//返回的数据类型
@@ -499,13 +526,13 @@
     })
 
     function del(thisObj) {
-        var id = $(thisObj).closest("tr").find("td[name='id']").html();
-        var add = {id: id};
-        var obj = JSON.stringify(add);
+        const id = $(thisObj).closest("tr").find("td[name='id']").html();
+        const add = {id: id};
+        const obj = JSON.stringify(add);
         alert(id);
         $.ajax({
             type: "GET",
-            url: "/user/tProdutServletDelete",
+            url: "/user/tProductOrderServletDelete",
             data: {obj: obj},
             contentType: "application/json;charset=utf-8",
             dataType: "json",//返回的数据类型
@@ -513,10 +540,6 @@
         setTimeout(function () {
             getList();
         }, 100);
-    }
-
-    function inserte() {
-
     }
 
     function getFormData() {
@@ -534,7 +557,7 @@
         alert(obj);
         $.ajax({
             type: 'GET',
-            url: '/user/tProductServletInserte',
+            url: '/user/tProductOrderServletInserte',
             contentType: 'application/json;charset=utf-8',
             data: {obj: obj},
             dataType: 'json',

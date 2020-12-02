@@ -1,22 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
-    <script src="js/jquery.min.js">
-    </script>
-    <script>
-        $(document).ready(function () {
-            $("input").blur(function () {
-                alert("输入框失去了焦点");
-            });
-        });
-    </script>
-</head>
-<body>
-
-输入你的名字: <input type="text">
-<p>在输入框写些东西，然后点击输入框外，让其失去焦点。</p>
-
-</body>
-</html>
+<div class="menu-sidebar2__content js-scrollbar1 ps">
+    <div class="account2">
+        <div class="image img-cir img-120">
+            <img src="images/icon/avatar-big-01.jpg" alt="John Doe">
+        </div>
+        <h4 class="name">john doe</h4>
+        <a href="/singOutServlet">Sign out</a>
+    </div>
+    <nav class="navbar-sidebar2">
+        <ul class="list-unstyled navbar__list">
+            <li>
+                <a href="/home.html">
+                    <i class="fas fa-home"></i>主页</a>
+            </li>
+            <li>
+                <a href="t_product_order.html">
+                    <i class="fas fa-th-list"></i>订单管理</a>
+                <!--                            拥有多少未处理订单-->
+                <span class="inbox-num">3</span>
+            </li>
+            <li>
+                <a href="t_product_schedule.html">
+                    <i class="fas fa-th-list"></i>生产调度管理</a>
+            </li>
+            <li class="active">
+                <a href="t_product.html">
+                    <i class="fas fa-th-list"></i>产品管理</a>
+            </li>
+            <li>
+                <a href="t_product_plan.html">
+                    <i class="fas fa-th-list"></i>生产计划管理</a>
+            </li>
+            <li>
+                <a href="t_factory.html">
+                    <i class="fas fa-th-list"></i>工厂管理</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+    </div>
+    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+    </div>
+</div>

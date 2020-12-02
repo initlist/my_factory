@@ -45,44 +45,50 @@
                 <img src="images/icon/logo-white.png" alt="Cool Admin"/>
             </a>
         </div>
-        <div class="menu-sidebar2__content js-scrollbar1">
+        <div class="menu-sidebar2__content js-scrollbar1 ps">
             <div class="account2">
                 <div class="image img-cir img-120">
-                    <img src="images/icon/avatar-big-01.jpg" alt="John Doe"/>
+                    <img src="images/icon/avatar-big-01.jpg" alt="John Doe">
                 </div>
                 <h4 class="name">john doe</h4>
-                <a href="#">Sign out</a>
+                <a href="/singOutServlet">Sign out</a>
             </div>
             <nav class="navbar-sidebar2">
                 <ul class="list-unstyled navbar__list">
                     <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>主页</a>
+                        <a href="/home.html">
+                            <i class="fas fa-home"></i>主页</a>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>订单管理</a>
+                    <li>
+                        <a href="t_product_order.html">
+                            <i class="fas fa-th-list"></i>订单管理</a>
                         <!--                            拥有多少未处理订单-->
                         <span class="inbox-num">3</span>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>生产调度管理</a>
+                    <li>
+                        <a href="t_product_schedule.html">
+                            <i class="fas fa-th-list"></i>生产调度管理</a>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>产品管理</a>
+                    <li>
+                        <a href="t_product.html">
+                            <i class="fas fa-th-list"></i>产品管理</a>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>生产计划管理</a>
+                    <li>
+                        <a href="t_product_plan.html">
+                            <i class="fas fa-th-list"></i>生产计划管理</a>
                     </li>
-                    <li class="active">
-                        <a href="#">
-                            <i class="fas fa-chart-bar"></i>工厂管理</a>
+                    <li>
+                        <a href="t_factory.html">
+                            <i class="fas fa-th-list"></i>工厂管理</a>
                     </li>
                 </ul>
             </nav>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps__rail-y" style="top: 0px; right: 0px;">
+                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+            </div>
         </div>
     </aside>
     <!-- END MENU SIDEBAR-->
@@ -204,7 +210,7 @@
                         <img src="images/icon/avatar-big-01.jpg" alt="John Doe"/>
                     </div>
                     <h4 class="name">john doe</h4>
-                    <a href="#">Sign out</a>
+                    <a href="/singOutServlet">Sign out</a>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
@@ -828,7 +834,6 @@
 
 <!-- Main JS-->
 <script src="js/main.js"></script>
-
 </body>
 
 </html>

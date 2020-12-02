@@ -1,24 +1,20 @@
-package top.ngago.servlet.t_product;
-
-import top.ngago.dao.t_product_dao;
+package top.ngago.servlet.login;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/user/tProductServlet")
-public class tProductServlet extends HttpServlet {
+@WebServlet("/singOutServlet")
+public class singOutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //创建数据库操作对象
-        t_product_dao t_product_dao = new t_product_dao();
-        //将查询结果封装成json:String
-        String json = t_product_dao.search();
-        //将json数据写入响应流中
-        resp.getWriter().println(json);
+        HttpSession session = req.getSession();
+        session.removeAttribute("user_name");
+        resp.sendRedirect("/login.html");
     }
 
     @Override

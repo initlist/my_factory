@@ -1,6 +1,8 @@
 package top.ngago.servlet.t_product;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import top.ngago.dao.t_product_dao;
+import top.ngago.entity.t_product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,16 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user/tProductServlet")
-public class tProductServlet extends HttpServlet {
+@WebServlet("/user/tProductServletInserte")
+public class tProductServletInserte extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //创建数据库操作对象
+        //创建核心文件
+        ObjectMapper mapper = new ObjectMapper();
+        //获取数据库操作对象啊
         t_product_dao t_product_dao = new t_product_dao();
-        //将查询结果封装成json:String
-        String json = t_product_dao.search();
-        //将json数据写入响应流中
-        resp.getWriter().println(json);
+        //获取前端传来的json对象
+        String obj = req.getParameter("obj");
+        //后端打印json对象
+        System.out.println("this is json:" + obj);
+        //把前端传来的json转为实体类对象
+        t_product t_product = mapper.readValue(obj, t_product.class);
+        //执行update操作
+        t_product_dao.inserter(t_product);
     }
 
     @Override
