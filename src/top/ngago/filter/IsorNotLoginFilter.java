@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 登录验证的过滤器
  */
-//@WebFilter(value = {"/user/*","/home.html","/t_product.html","/t_product_order.html","/t_product_schedule.html","/t_product_plan.html","/t_factory.html"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
+@WebFilter(value = {"/user/*", "/home.html", "/t_product.html", "/t_product_order.html", "/t_product_schedule.html", "/t_product_plan.html", "/t_factory.html"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
 public class IsorNotLoginFilter implements Filter {
     public void destroy() {
     }

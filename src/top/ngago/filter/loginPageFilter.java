@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 登录页面登录验证
  */
-//@WebFilter("/login.html")
+@WebFilter("/login.html")
 public class loginPageFilter implements Filter {
     public void destroy() {
     }
